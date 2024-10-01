@@ -13,6 +13,8 @@ namespace test1
         {
 
             modelBuilder.Entity<Person>().HasKey(K => K.Id);
+
+            
         }
 
         public DbSet<Person> people { get; set; }

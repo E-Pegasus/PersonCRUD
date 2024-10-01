@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
-using NuGet.Protocol;
+
 using test1.Entities;
 
 namespace test1.Controllers
@@ -44,6 +44,7 @@ namespace test1.Controllers
         public async Task<ActionResult<Person>> UpdatePerson(int id, string Name,int age ,string Desctiption)
         {
             var person = await _context.people.FindAsync(id);
+            //var person = GetPerson(id);
 
             // checking if the data is existed on the db before updating
             if (person != null) {
@@ -81,6 +82,9 @@ namespace test1.Controllers
         public async Task<ActionResult<Person>> DeletePerson(int id)
         {
             var person = await _context.people.FindAsync(id);
+
+            //var person = GetPerson(id);
+
             if (person != null)
             {
                 _context.people.Remove(person);
